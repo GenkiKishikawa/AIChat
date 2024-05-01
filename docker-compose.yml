@@ -1,11 +1,12 @@
 version: "3"
 services:
   app:
-    image: python:3.9-slim
+    build: .
     ports:
       - "5000:5000"
     volumes:
       - .:/app
+      - .dockervenv:/app/.venv
     working_dir: /app
     entrypoint: tail -f /dev/null
     environment:
