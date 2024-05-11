@@ -87,8 +87,6 @@ def main():
         st.session_state.costs.append(cost)
       else:
         output_text = None
-        
-      print(output_text)
   
   with response_container:
     if output_text:
@@ -97,11 +95,11 @@ def main():
       st.markdown("-----------------------")
       st.write(document)
       
-  # costs = st.session_state.get('costs', [])
-  # st.sidebar.markdown("## Costs")
-  # st.sidebar.markdown(f"**Total cost: ${sum(costs):.5f}**")
-  # for cost in costs:
-  #     st.sidebar.markdown(f"- ${cost:.5f}")
+  costs = st.session_state.get('costs', [])
+  st.sidebar.markdown("## Costs")
+  st.sidebar.markdown(f"**Total cost: ${sum(costs):.5f}**")
+  for cost in costs:
+      st.sidebar.markdown(f"- ${cost:.5f}")
 
 if __name__ == "__main__":
   main()
